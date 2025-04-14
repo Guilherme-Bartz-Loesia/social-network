@@ -1,23 +1,22 @@
-[project]
+[tool.poetry]
 name = "social-network"
 version = "0.1.0"
 description = ""
-authors = [name = "Guilherme Bartz Loesia <guiloesia@gmail.com"]
+authors = ["Guilherme Bartz Loesia <guiloesia@gmail.com>"]
 readme = "README.md"
-packages = [{include = "scr"}]
+packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
-requires-python = ">=3.9,<4.0"
+python = ">=3.9,<4.0"
 fastapi = {extras = ["standard"], version = "^0.115.0"}
 tortoise-orm = {extras = ["asyncpg"], version = "^0.21.6"}
-
 
 [tool.poetry.group.dev.dependencies]
 taskipy = "^1.13.0"
 
 [tool.taskipy.tasks]
 dev = "fastapi dev dev.py"
-prod = "uvicorn src.api.application:app --host 0.0.0.0 --port 8000 --reload"
+prod = "uvicorn src.api.application:app --host 0.0.0.0 --port 80 --reload"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
